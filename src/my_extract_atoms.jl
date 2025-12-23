@@ -161,7 +161,9 @@ function rank_check(n::Int64, t, d, mom, tol=1e-6)
         push!(rs, r)
         if r == oldrank
             check = true
-            break
+            if j>=Int(ceil((d+1)/2))
+                break
+            end
         end
         oldrank = r
     end
@@ -258,5 +260,6 @@ function givens(a,b)
     end
     return c,s
 end
+
 
 end
